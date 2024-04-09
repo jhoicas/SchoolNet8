@@ -1,0 +1,11 @@
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Contracts\obj\Debug\net8.0\School.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Contracts\obj\Debug\net8.0\School.Contracts.AssemblyInfoInputs.cache
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Contracts\obj\Debug\net8.0\School.Contracts.AssemblyInfo.cs
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Contracts\obj\Debug\net8.0\School.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Contracts\bin\Debug\net8.0\School.Contracts.deps.json
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Contracts\bin\Debug\net8.0\School.Contracts.dll
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Contracts\bin\Debug\net8.0\School.Contracts.pdb
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Contracts\obj\Debug\net8.0\School.Contracts.dll
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Contracts\obj\Debug\net8.0\refint\School.Contracts.dll
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Contracts\obj\Debug\net8.0\School.Contracts.pdb
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Contracts\obj\Debug\net8.0\ref\School.Contracts.dll

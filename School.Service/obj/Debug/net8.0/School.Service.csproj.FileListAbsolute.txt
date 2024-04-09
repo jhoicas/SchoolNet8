@@ -1,0 +1,17 @@
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Service\obj\Debug\net8.0\School.Service.csproj.AssemblyReference.cache
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Service\obj\Debug\net8.0\School.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Service\obj\Debug\net8.0\School.Service.AssemblyInfoInputs.cache
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Service\obj\Debug\net8.0\School.Service.AssemblyInfo.cs
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Service\obj\Debug\net8.0\School.Service.csproj.CoreCompileInputs.cache
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Service\bin\Debug\net8.0\School.Service.deps.json
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Service\bin\Debug\net8.0\School.Service.dll
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Service\bin\Debug\net8.0\School.Service.pdb
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Service\bin\Debug\net8.0\DAL.dll
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Service\bin\Debug\net8.0\School.Contracts.dll
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Service\bin\Debug\net8.0\DAL.pdb
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Service\bin\Debug\net8.0\School.Contracts.pdb
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Service\obj\Debug\net8.0\School.S.41437F4E.Up2Date
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Service\obj\Debug\net8.0\School.Service.dll
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Service\obj\Debug\net8.0\refint\School.Service.dll
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Service\obj\Debug\net8.0\School.Service.pdb
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Service\obj\Debug\net8.0\ref\School.Service.dll
