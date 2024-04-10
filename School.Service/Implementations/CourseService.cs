@@ -70,7 +70,7 @@ namespace School.Service.Implementations
             return coursesResponse;
         }
 
-        public async Task<CoursesResponse> GetCourseById(int id)
+        public async Task<CoursesResponse?> GetCourseById(int id)
         {
             try
             {
@@ -98,7 +98,7 @@ namespace School.Service.Implementations
             }
         }
 
-        public async Task<CourseResponse> UpdateCourse(int id, CourseRequest courseRequest)
+        public async Task<CourseResponse?> UpdateCourse(int id, CourseRequest courseRequest)
         {
             try
             {
@@ -133,7 +133,7 @@ namespace School.Service.Implementations
             }
         }
 
-        public async Task<CourseResponse> DeleteCourse(int id)
+        public async Task<CourseResponse?> DeleteCourse(int id)
         {
             try
             {
@@ -155,7 +155,7 @@ namespace School.Service.Implementations
                 throw;
             }
         }
-        private async Task<Course> FindCourseByIdAsync(int id)
+        private async Task<Course?> FindCourseByIdAsync(int id)
         {
             return await schoolContext.Courses.FindAsync(id);
         }

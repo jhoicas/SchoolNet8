@@ -22,8 +22,7 @@ namespace School.API.Controllers
             this._logger = logger;
         }
 
-
-        [HttpPost]
+        [HttpPost("create-enroll")]
         public async Task<IActionResult> CreateEnroll(EnrollmentRequest enrollmenRequest)
         {
             try
@@ -37,6 +36,22 @@ namespace School.API.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
+
+        [HttpPost("create-enroll-with-payment")]
+        public async Task<IActionResult> CreateEnrollWithPayment(EnrollmentRequest enrollmenRequest)
+        {
+            try
+            {
+                var response = await enrollmentService.RegisterEnrollmentWithPayment(enrollmenRequest);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error registering enrollment");
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
 
         // PUT api/enrollment/{enrollmentId}
         [HttpPut("{enrollmentId}")]

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using School.API.Tools;
 using School.Contracts.Interfaces;
 using School.Contracts.Requests;
 using School.Contracts.Responses;
@@ -11,13 +12,14 @@ namespace School.API.Controllers
     public class CoursesController : Controller
     {
         private readonly ICourseService courseService;
-        private readonly ILogger<CoursesController> _logger;
+        private readonly ILogger<CoursesController> logger;
+     
 
         public CoursesController(ICourseService _courseService, ILogger<CoursesController> logger)
         {
             this.courseService = _courseService;
-            this._logger = logger;
-
+            this.logger = logger;
+  
         }
 
         /// <summary>
@@ -27,12 +29,14 @@ namespace School.API.Controllers
         /// <returns>The course creation response.</returns>
         /// <response code="201">Course created successfully.</response>
         /// <response code="400">Bad request.</response>
+        [ApiKey]
         [HttpPost]
         public async Task<CourseResponse> CreateCourse(CourseRequest courseRequest)
         {
             return  await courseService.RegisterCourse(courseRequest);
         }
 
+      
         [HttpGet]
         public async Task<List<CoursesResponse>> GetCourses()
         {
@@ -46,6 +50,7 @@ namespace School.API.Controllers
         /// <returns>The course information if found, otherwise a 404 Not Found response.</returns>
         /// <response code="200">Course found successfully.</response>
         /// <response code="404">Course not found.</response>
+        [ApiKey]
         [HttpGet("{id}")]
         public async Task<CoursesResponse> GetCourseById(int id)
         {
@@ -55,7 +60,7 @@ namespace School.API.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error retrieving course with ID {Id}", id);
+                logger.LogError(ex, "Error retrieving course with ID {Id}", id);
                 throw; // Re-throw to let the controller handle the exception
             }
         }
@@ -79,7 +84,7 @@ namespace School.API.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error updating course with ID {Id}", id);
+                logger.LogError(ex, "Error updating course with ID {Id}", id);
                 return StatusCode(500, "Error updating course"); // Or handle specific exceptions differently
             }
         }
@@ -101,7 +106,7 @@ namespace School.API.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error deleting course with ID {Id}", id);
+                logger.LogError(ex, "Error deleting course with ID {Id}", id);
                 return StatusCode(500, "Error deleting course"); // Or handle specific exceptions differently
             }
         }

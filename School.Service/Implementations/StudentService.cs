@@ -69,7 +69,7 @@ namespace School.Service.Implementations
             }
         }
 
-        public async Task<CoursesByStudentResponse> GetEnrolledCourses(int studentId)
+        public async Task<CoursesByStudentResponse?> GetEnrolledCourses(int studentId)
         {
             try
             {
@@ -108,7 +108,7 @@ namespace School.Service.Implementations
             }
         }
 
-        public async Task<StudentDtoResponse> GetStudentById(int studentId)
+        public async Task<StudentDtoResponse?> GetStudentById(int studentId)
         {
             try
             {

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "gG0pW1OB8KRNuRxRTHkb14dpIEn7/S/agOGZO7BDSv9i5dNGwBDpl7lWjjhgIw6za81JmAF0uOsNavJ70RHUXw==",
+  "dgSpecHash": "ZE1Yp+RDvaX6Pdymwr6Nz5dZEe2r/VQGUHt2Q9icU2eACnQWBc7jy4ttj9iEHp0RA8+94adkmevhyGD+f9v2hQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\yoiner.castillo\\source\\challenge\\BusinessLocation\\ACME_school\\School.Service\\School.Service.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\yoiner.castillo\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\8.0.3\\microsoft.entityframeworkcore.inmemory.8.0.3.nupkg.sha512",
     "C:\\Users\\yoiner.castillo\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\8.0.0\\microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\yoiner.castillo\\.nuget\\packages\\microsoft.extensions.caching.memory\\8.0.0\\microsoft.extensions.caching.memory.8.0.0.nupkg.sha512",
+    "C:\\Users\\yoiner.castillo\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\yoiner.castillo\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
     "C:\\Users\\yoiner.castillo\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.1\\microsoft.extensions.dependencyinjection.abstractions.8.0.1.nupkg.sha512",
     "C:\\Users\\yoiner.castillo\\.nuget\\packages\\microsoft.extensions.logging\\8.0.0\\microsoft.extensions.logging.8.0.0.nupkg.sha512",

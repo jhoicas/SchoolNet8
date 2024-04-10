@@ -1,29 +1,29 @@
 using DAL.Context;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using School.API.Tools;
 using School.Contracts.Interfaces;
 using School.Service.Implementations;
-using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Access configuration data (IConfiguration is injected automatically)
+var configuration = builder.Configuration;
+builder.Services.AddSingleton<IConfiguration>(configuration);
 
 // Dependency Injection for services
 builder.Services.AddScoped<IEnrollmentService, EnrollmentService>();
 builder.Services.AddScoped<IStudentService, StudentService>();
 builder.Services.AddScoped<ICourseService, CourseService>();
+builder.Services.AddTransient<IApiKeyValidation, ApiKeyValidation>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
+builder.Services.AddScoped<ApiKeyAuthFilter>();
 
+builder.Services.AddHttpContextAccessor();
 // Configure in-memory database
 builder.Services.AddDbContext<SchoolContext>(options =>
         options.UseInMemoryDatabase("SchoolDb"));
 
-// Add authentication (assuming JWT-based)
-//builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-//  .AddJwtBearer(options => // Configure JWT settings);
-
-// Add services for controllers (**fix here**)
 builder.Services.AddControllers();
 
 // Add Swagger configuration
@@ -38,16 +38,20 @@ var app = builder.Build();
 
 // Enable middleware
 app.UseHttpsRedirection();
-//app.UseAuthentication(); // Enable authentication (optional)
+
 app.UseRouting();
-//app.UseAuthorization();  (optional)
+
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();
 });
 
-// Enable Swagger UI
-app.UseSwagger();
+if (app.Environment.IsProduction() || app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
 app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "School Management API V1");

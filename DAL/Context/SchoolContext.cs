@@ -10,9 +10,10 @@ namespace DAL.Context
         public DbSet<Student> Students { get; set; }
 
         public DbSet<Enrollment> Enrollments { get; set; }
-
+        public DbSet<Payment> Payments { get; set; }
 
         public SchoolContext(DbContextOptions<SchoolContext> options) : base(options) { }
 
+       
     }
 }

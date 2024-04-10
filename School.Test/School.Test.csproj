@@ -11,7 +11,8 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0" />
-    <PackageReference Include="MSTest.TestAdapter" Version="3.0.4" />
+    <PackageReference Include="Moq" Version="4.20.70" />
+    <PackageReference Include="MSTest.TestAdapter" Version="3.3.1" />
     <PackageReference Include="MSTest.TestFramework" Version="3.0.4" />
     <PackageReference Include="coverlet.collector" Version="6.0.0" />
     <PackageReference Include="xunit" Version="2.7.0" />
@@ -19,6 +20,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj" />
+    <ProjectReference Include="..\School.API\School.API.csproj" />
+    <ProjectReference Include="..\School.Contracts\School.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

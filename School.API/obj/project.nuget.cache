@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "6l1Rzq0W3JXR61RQh5dajENo0/jmnTFfHQBeWECiZ664x6gPXyFqq6Jhz9CowtQ7O4HMURjwFs0OLfTotF59Ag==",
+  "dgSpecHash": "+u9k0dQFCEN9+7x/NsfaLiNVVJARYwUGu/JaYCTJnQQb0fZ8QqleO4pHgB+5ar6FIL+F0NH/bYrgZK8FgqRoyQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\yoiner.castillo\\source\\challenge\\BusinessLocation\\ACME_school\\School.API\\School.API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\yoiner.castillo\\.nuget\\packages\\aspnetcore.authentication.apikey\\8.0.1\\aspnetcore.authentication.apikey.8.0.1.nupkg.sha512",
     "C:\\Users\\yoiner.castillo\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\yoiner.castillo\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\yoiner.castillo\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.3\\microsoft.aspnetcore.authentication.jwtbearer.8.0.3.nupkg.sha512",

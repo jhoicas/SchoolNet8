@@ -34,21 +34,14 @@ namespace School.Service.Implementations
         {
             try
             {
-                var student = await schoolContext.Students.FindAsync(enrollment.StudentId);
-                if (student == null)
-                {
-                    return null; // Student not found
-                }
-                var course = await schoolContext.Courses.FindAsync(enrollment.CourseId);
-
-                if (course == null)
-                {
-                    return null;
-                }
-
-                schoolContext.Add( new Enrollment(student, course));
+                // Create the enrollment referencing the tracked objects
+                var newEnrollment = new Enrollment(enrollment.StudentId, enrollment.CourseId);
+                var codePayment = schoolContext.Add(newEnrollment);
                 await schoolContext.SaveChangesAsync();
-                return new EnrollmentResponse { IsSuccessful = true, Message = "registred succesfully" };
+                
+          
+                return new EnrollmentResponse { IsSuccessful = true, Message = $"Successfully registered, payment pending. \nYou can cancel with the code: {codePayment.Entity.Id}." };
+
             }
             catch (Exception ex)
             {
@@ -76,6 +69,7 @@ namespace School.Service.Implementations
                 existingEnrollment.Student = schoolContext.Students.Find(enrollment.StudentId);
                 existingEnrollment.Course = schoolContext.Courses.Find(enrollment.CourseId);
                 existingEnrollment.EnrollmentLastUpdate = DateTime.UtcNow;
+                existingEnrollment.IsFeePaid = enrollment.IsFeePaid;
 
                 schoolContext.Update(existingEnrollment);
                 await schoolContext.SaveChangesAsync();
@@ -106,6 +100,7 @@ namespace School.Service.Implementations
                     CourseId = enrollment.Course.Id,
                     EnrollmentDate = enrollment.EnrollmentDate,
                     EnrollmentLastUpdate = enrollment.EnrollmentLastUpdate,
+                    IsFeePaid = enrollment.IsFeePaid,
                     StudentName = enrollment.Student?.Name,  
                     CourseName = enrollment.Course?.Name   
                 }).ToList();
@@ -157,7 +152,7 @@ namespace School.Service.Implementations
                 var enrolledStudents = await schoolContext.Enrollments
                    .Include(e => e.Student)
                    .Include(e => e.Course)
-                   .Where(e => e.Course.Id == courseId)
+                   .Where(e => e.Course.Id == courseId && e.IsFeePaid)
                    .Select(e => e.Student)
                    .ToListAsync();
 
@@ -188,7 +183,7 @@ namespace School.Service.Implementations
         {
             try
             {
-                return await schoolContext.Enrollments.AnyAsync(e => e.Student.Id == studentId && e.Course.Id == courseId);
+                return await schoolContext.Enrollments.AnyAsync(e => e.Student.Id == studentId && e.Course.Id == courseId && e.IsFeePaid);
             }
             catch (Exception ex)
             {
@@ -220,6 +215,52 @@ namespace School.Service.Implementations
                 throw; // Re-throw for appropriate handling (optional)
             }
         }
+
+        public async Task<EnrollmentResponse> RegisterEnrollmentWithPayment(EnrollmentRequest enrollment)
+        {
+            try
+            {
+                var student = await schoolContext.Students.FindAsync(enrollment.StudentId);
+                if (student == null)
+                {
+                    return null; // Student not found
+                }
+                var course = await schoolContext.Courses.FindAsync(enrollment.CourseId);
+
+                if (course == null)
+                {
+                    return null;
+                }
+
+                var response = schoolContext.Add(new Enrollment(enrollment.StudentId, enrollment.CourseId));
+                await schoolContext.SaveChangesAsync();
+
+                int enrollmentId = response.Entity.Id;
+
+
+                var enrollmentTemp = await schoolContext.Enrollments.FindAsync(enrollmentId);
+
+                if (enrollmentTemp == null)
+                {
+                    return null;
+                }
+                enrollmentTemp.IsFeePaid = true;
+                schoolContext.Add(new Payment { Amount = course.Fee, PaymentDate = DateTime.UtcNow, Enrollment = enrollmentTemp });
+                await schoolContext.SaveChangesAsync();
+
+
+                return new EnrollmentResponse { IsSuccessful = true, Message = "registred succesfully" };
+            }
+            catch (Exception ex)
+            {
+                var exceptionType = ex.GetType().ToString();
+                _logger.LogError(exceptionType, ex);
+                throw;
+            }
+        }
+
+
+
 
         #endregion "Enrollment Actions"
     }

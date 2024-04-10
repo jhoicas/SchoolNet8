@@ -7,5 +7,7 @@
         public int CourseId { get; set; }
         public DateTime EnrollmentDate { get; set; }
         public DateTime EnrollmentLastUpdate { get; set; }
+        public bool IsFeePaid { get; set; }
+
     }
 }

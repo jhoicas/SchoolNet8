@@ -79,3 +79,5 @@ C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.AP
 C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.API\obj\Debug\net8.0\School.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.API\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.InMemory.dll
 C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.Annotations.dll
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.API\obj\Debug\net8.0\School.API.sourcelink.json
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.API\bin\Debug\net8.0\AspNetCore.Authentication.ApiKey.dll

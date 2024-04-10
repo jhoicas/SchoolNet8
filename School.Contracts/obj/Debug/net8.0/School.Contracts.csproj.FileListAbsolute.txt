@@ -9,3 +9,4 @@ C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Co
 C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Contracts\obj\Debug\net8.0\refint\School.Contracts.dll
 C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Contracts\obj\Debug\net8.0\School.Contracts.pdb
 C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Contracts\obj\Debug\net8.0\ref\School.Contracts.dll
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Contracts\obj\Debug\net8.0\School.Contracts.sourcelink.json

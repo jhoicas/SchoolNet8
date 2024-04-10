@@ -14,6 +14,8 @@ namespace School.Contracts.Interfaces
 
         Task<EnrollmentResponse> RegisterEnrollment(EnrollmentRequest enrollment);
 
+        Task<EnrollmentResponse> RegisterEnrollmentWithPayment(EnrollmentRequest enrollment);
+
         /// <summary>
         /// Retrieves enrollment information for a specific student identified by their ID.
         /// </summary>
