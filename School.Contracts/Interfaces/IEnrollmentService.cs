@@ -29,7 +29,7 @@ namespace School.Contracts.Interfaces
         /// </summary>
         /// <returns>A list of EnrollmentResponse objects representing all enrollments.</returns>
         /// <exception cref="Exception">Throws an exception if an error occurs while retrieving all enrollments.</exception>
-        Task<List<EnrollmentDtoResponse>> GetAllEnrollments();
+        Task<IEnumerable<EnrollmentDtoResponse>> GetAllEnrollments();
 
         /// <summary>
         /// Retrieves enrollment information for a particular course identified by its ID.

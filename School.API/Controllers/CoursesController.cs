@@ -38,7 +38,7 @@ namespace School.API.Controllers
 
       
         [HttpGet]
-        public async Task<List<CoursesResponse>> GetCourses()
+        public async Task<IEnumerable<CoursesResponse>> GetCourses()
         {
             return await courseService.GetCourses();
         }

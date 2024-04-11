@@ -50,7 +50,7 @@ namespace School.Service.Implementations
             }
         }
 
-        public async Task<List<StudentDtoResponse>> GetAllStudents()
+        public async Task<IEnumerable<StudentDtoResponse>> GetAllStudents()
         {
             try
             {
@@ -132,7 +132,7 @@ namespace School.Service.Implementations
             }
         }
 
-        public async Task<List<StudentDtoResponse>> GetStudentsByCourseId(int courseId)
+        public async Task<IEnumerable<StudentDtoResponse>> GetStudentsByCourseId(int courseId)
         {
             try
             {

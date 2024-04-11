@@ -1,46 +1,79 @@
 ﻿using DAL.Context;
 using DAL.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using School.Contracts.Requests;
 using School.Service.Implementations;
-using Xunit;
 
 namespace School.Test
 {
     [TestClass]
     public class PaymentServiceTest
     {
-        private readonly SchoolContext schoolContext;
-        private readonly ILogger<PaymentService> _logger;
-
-        public PaymentServiceTest()
-        {
-            schoolContext = new Mock<SchoolContext>();
-            _logger = new Mock<ILogger<PaymentService>>();
-        }
-
-        [Fact]
-        public async Task Payment_ReturnsSuccessForValidEnrollment()
+        [TestMethod]
+        public async Task RegisterPayment_ReturnsSuccess()
         {
             // Arrange
-            var enrollmentId = 1;
-            var expectedEnrollment = new Enrollment { Id = enrollmentId };
+            var options = new DbContextOptionsBuilder<SchoolContext>()
+                .UseInMemoryDatabase(databaseName: "TestDatabase")
+                .Options;
+         
+            var schoolContext = new SchoolContext(options);
 
-            schoolContext.Setup(context => context.FindAsync<Enrollment>(enrollmentId))
-              .ReturnsAsync(expectedEnrollment);
+            //Course
+            var mockLoggerCourse = new Mock<ILogger<CourseService>>();
+            var courseRequest = new CourseRequest
+            {
+                CourseName = "Test Course",
+                Amount = 100,
+                DateStart = DateTime.UtcNow.Date,
+                DateEnd = DateTime.UtcNow.AddDays(30).Date
+            };
 
-            var paymentService = new PaymentService(schoolContext.Object, _logger.Object);
+            var courseService = new CourseService(schoolContext, mockLoggerCourse.Object);
+            var courseResponse = await courseService.RegisterCourse(courseRequest);
+
+            //Student
+            var mockLoggerStudent = new Mock<ILogger<StudentService>>();
+            var studentService = new StudentService(schoolContext, mockLoggerStudent.Object);
+
+            var studentRequest = new StudentRequest
+            {
+                FirstName = "Yoiner",
+                LastName = "Castillo",
+                Age = 25
+            };
+            // Act
+            var studentResponse = await studentService.RegisterStudent(studentRequest);
+
+            var mockLoggerEnrollment = new Mock<ILogger<EnrollmentService>>();
+            var enrollmentService = new EnrollmentService(schoolContext, mockLoggerEnrollment.Object);
+            var enrollmentRequest = new EnrollmentRequest
+            {
+                StudentId = 1,
+                CourseId = 1
+            };
 
             // Act
-            var result = await paymentService.Payment(enrollmentId);
+            var enrollmentResponse = await enrollmentService.RegisterEnrollment(enrollmentRequest);
+
+
+            var mockLoggerPayment = new Mock<ILogger<PaymentService>>();
+
+            var paymentService = new PaymentService(schoolContext, mockLoggerPayment.Object);
+
+
+
+            // Act
+            var paymentResponse = await paymentService.Payment(1);
+
 
             // Assert
-            Assert.True(result.IsCompletedSuccessfully);
+            Assert.IsNotNull(courseResponse); // Check if response is not null
+            Assert.AreEqual("Course registered successfully", courseResponse.Response);
 
-            // Verify service interactions (consider specific logic you want to test)
-            _schoolContextMock.Verify(context => context.FindAsync<Enrollment>(enrollmentId), Times.Once);
-            // Additional assertions based on your PaymentService implementation
         }
 
     }

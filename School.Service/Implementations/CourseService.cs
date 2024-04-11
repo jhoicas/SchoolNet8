@@ -53,7 +53,7 @@ namespace School.Service.Implementations
 
         }
 
-        public async Task<List<CoursesResponse>> GetCourses()
+        public async Task<IEnumerable<CoursesResponse>> GetCourses()
         {
             var courses = await schoolContext.Courses.ToListAsync();
 
