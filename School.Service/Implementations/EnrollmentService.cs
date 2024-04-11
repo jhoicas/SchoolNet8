@@ -83,7 +83,7 @@ namespace School.Service.Implementations
             }
         }
 
-        public async Task<List<EnrollmentDtoResponse>> GetAllEnrollments()
+        public async Task<IEnumerable<EnrollmentDtoResponse>> GetAllEnrollments()
         {
             try
             {

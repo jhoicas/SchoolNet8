@@ -16,7 +16,7 @@ namespace School.Contracts.Interfaces
         /// Gets all courses.
         /// </summary>
         /// <returns>A list of all courses.</returns>
-        Task<List<CoursesResponse>> GetCourses();
+        Task<IEnumerable<CoursesResponse>> GetCourses();
 
         /// <summary>
         /// Retrieves a course by its ID.

@@ -24,14 +24,14 @@ namespace School.Contracts.Interfaces
         /// Retrieves a list of all students in the system.
         /// </summary>
         /// <returns>A List of StudentResponse objects containing details of all students.</returns>
-        Task<List<StudentDtoResponse>> GetAllStudents();
+        Task<IEnumerable<StudentDtoResponse>> GetAllStudents();
 
         /// <summary>
         /// Retrieves a list of students enrolled in a specific course.
         /// </summary>
         /// <param name="courseId">The ID of the course to filter students by.</param>
         /// <returns>A List of StudentResponse objects containing details of students enrolled in the specified course.</returns>
-        Task<List<StudentDtoResponse>> GetStudentsByCourseId(int courseId);
+        Task<IEnumerable<StudentDtoResponse>> GetStudentsByCourseId(int courseId);
 
         /// <summary>
         /// Updates the information of an existing student.

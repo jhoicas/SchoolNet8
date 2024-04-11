@@ -236,3 +236,4 @@ C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Te
 C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Test\bin\Debug\net8.0\School.Service.pdb
 C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Test\obj\Debug\net8.0\School.Test.sourcelink.json
 C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Test\bin\Debug\net8.0\AspNetCore.Authentication.ApiKey.dll
+C:\Users\yoiner.castillo\source\challenge\BusinessLocation\ACME_school\School.Test\bin\Debug\net8.0\NSubstitute.dll
